@@ -93,7 +93,7 @@ class PointMod(EllipticCurveMod):
         #(x_1,y_1)+(x_2,y_2), x_1!=x_2
         if other.x != self.x:
             #plambda=((other.y-self.y)//(other.x-self.x)%self.n)
-            plambda = (other.y-self.y)*inverse_mod(other.x-self.x, self.n) % self.n
+            plambda = ((other.y-self.y)*inverse_mod(other.x-self.x, self.n)) % self.n
             x = -self.x-other.x+plambda**2
             y = -(self.y+(x-self.x)*plambda) #-y_3
             return PointMod(self.a, self.n, x, y)
@@ -127,3 +127,9 @@ class PointMod(EllipticCurveMod):
             res = res+self
             i = i+1
         return res
+
+    def __eq__(self, other):
+        """Проверяет две точки на равенство"""
+        if self.x == other.x and self.y == other.y:
+            return True
+        return False
