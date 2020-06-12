@@ -13,19 +13,6 @@ def lenstr(n):
         i = next_prime(i)
         pr_list.append(i)
 
-    # while gcd(4*a**3+27*b**2, n) == n:
-    #     p = np.random.choice(pr_list)
-    #     a = np.random.randint(1, p)
-    #     b = np.random.randint(1, p)
-
-    #     #Генерируем эллиптическую кривую над модулем p
-    #     E = EllipticCurveMod(a, b, p)
-    #     print("E:", E)
-
-    #     #Выбираем случайную точку
-    #     P = E.random_point()
-    #     print("P:", P)
-
     #Выбираем параметры B и C:
     C = np.random.choice(pr_list)
     B = np.random.choice(pr_list)
